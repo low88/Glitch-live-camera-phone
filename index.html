@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Segnale Rotto</title>
+<meta name="theme-color" content="#0c0a10">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Segnale Rotto">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <canvas id="gl"></canvas>
+
+  <div class="topbar">
+    <div class="brand" aria-label="Segnale Rotto">SEGNALE<span>ROTTO</span></div>
+    <div class="tb-right">
+      <span class="fps" id="fps">--</span>
+      <button class="pill" id="installBtn" hidden>Installa</button>
+      <button class="pill" id="srcBtn" aria-haspopup="true">Sorgente</button>
+      <button class="pill" id="resBtn" title="Risoluzione">HD</button>
+      <button class="pill" id="micBtn" aria-pressed="false" title="Audio nella registrazione">Mic</button>
+      <button class="pill icon" id="flipBtn" title="Cambia camera" aria-label="Cambia camera">⟲</button>
+    </div>
+  </div>
+
+  <div class="recbadge" id="recBadge" hidden>REC <span id="recTime">00:00</span></div>
+  <div class="notice" id="notice" hidden></div>
+  <button class="showui" id="showUi" hidden>Comandi</button>
+
+  <div class="panel" id="panel">
+    <div class="chips" id="chips" role="tablist" aria-label="Effetti"></div>
+    <div class="card" id="card">
+      <div class="card-head">
+        <div class="card-title" id="cardTitle">TV</div>
+        <button class="switch" id="fxSwitch" role="switch" aria-checked="false"><span></span></button>
+      </div>
+      <div class="knobs" id="knobs"></div>
+    </div>
+    <div class="transport">
+      <button class="tbtn" id="presetBtn" aria-haspopup="true">Preset</button>
+      <button class="tbtn" id="snapBtn">Foto</button>
+      <button class="rec" id="recBtn" aria-label="Registra"><span></span></button>
+      <button class="tbtn kick" id="kickBtn">Botta</button>
+      <button class="tbtn" id="hideUi">Nascondi</button>
+    </div>
+  </div>
+
+  <div class="pop" id="pop" hidden></div>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="sheet-box">
+      <video id="clipVid" playsinline loop muted></video>
+      <div class="sheet-info" id="clipInfo"></div>
+      <div class="sheet-actions">
+        <button class="tbtn" id="shareClip">Salva / Condividi</button>
+        <a class="tbtn" id="dlClip" download>Scarica file</a>
+        <button class="tbtn ghost" id="closeSheet">Chiudi</button>
+      </div>
+    </div>
+  </div>
+
+  <input type="file" id="fileIn" accept="video/*,image/*" hidden>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
